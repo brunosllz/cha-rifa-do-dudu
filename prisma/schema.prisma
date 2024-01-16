@@ -25,4 +25,6 @@ model selectedNumber {
   isDelivered DateTime?
 
   Buyer buyer @relation(fields: [buyerId], references: [id], onDelete: Cascade)
+
+  @@index([buyerId])
 }
