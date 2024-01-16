@@ -8,6 +8,8 @@ const raffleFormSchema = z.object({
   chosenNumbers: z.array(z.number().min(1).max(100)),
 })
 
+export const dynamic = 'force-dynamic'
+
 export async function POST(request: Request) {
   const requestBody = await request.json()
 
