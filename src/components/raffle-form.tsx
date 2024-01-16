@@ -9,7 +9,7 @@ import { ChangeEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { Button } from './button'
-import { Check } from 'lucide-react'
+import { Check, Loader2 } from 'lucide-react'
 
 import {
   AlertDialog,
@@ -114,10 +114,13 @@ export function RaffleForm() {
         onSubmit={handleSubmit(handleSubmitRaffleForm)}
       >
         <div className="flex flex-col gap-3.5">
-          <label className="text-sm">Nome completo *</label>
+          <label htmlFor="name" className="text-sm">
+            Nome completo *
+          </label>
 
           <div className="flex flex-col gap-1">
             <input
+              id="name"
               type="text"
               placeholder="Eduardo Silveira de Almeida"
               className="p-4 text-sm rounded-md text-puce-950 bg-puce-50 border-puce-200 focus:outline-none border placeholder:text-puce-300 focus:ring-1 focus:ring-puce-900"
@@ -133,10 +136,13 @@ export function RaffleForm() {
         </div>
 
         <div className="flex flex-col gap-3.5">
-          <label className="text-sm">Telefone *</label>
+          <label htmlFor="phone" className="text-sm">
+            Telefone *
+          </label>
 
           <div className="flex flex-col gap-1">
             <input
+              id="phone"
               type="text"
               placeholder="(99) 99999-9999"
               className="p-4 text-sm rounded-md text-puce-950 bg-puce-50 border-puce-200 focus:outline-none border placeholder:text-puce-300 focus:ring-1 focus:ring-puce-900"
@@ -202,7 +208,7 @@ export function RaffleForm() {
                           <Link
                             href={'https://wa.me/555491053841'}
                             target="_blank"
-                            className="bg-green-400 py-3 flex items-center justify-center rounded-md gap-2"
+                            className="bg-green-500 transition-colors hover:bg-green-600 py-3 flex items-center justify-center rounded-md gap-2"
                           >
                             <WhatsAppLogo width={18} height={18} />
 
@@ -216,7 +222,7 @@ export function RaffleForm() {
                           <Link
                             href={'https://wa.me/5551982285447'}
                             target="_blank"
-                            className="bg-green-400 py-3 flex items-center justify-center rounded-md gap-2"
+                            className="bg-green-500 transition-colors hover:bg-green-600 py-3 flex items-center justify-center rounded-md gap-2"
                           >
                             <WhatsAppLogo width={18} height={18} />
 
@@ -244,7 +250,14 @@ export function RaffleForm() {
       </form>
 
       <Button type="submit" form="submit-selected-numbers" disabled={isPending}>
-        Confirmar <Check size={16} strokeWidth={2.5} />
+        {isPending ? (
+          <Loader2 className="animate-spin" size={16} strokeWidth={2.5} />
+        ) : (
+          <>
+            {' '}
+            Confirmar <Check size={16} strokeWidth={2.5} />
+          </>
+        )}
       </Button>
     </>
   )
