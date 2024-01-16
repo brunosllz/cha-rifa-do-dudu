@@ -17,8 +17,6 @@ function requiredOnEnv(env: z.infer<typeof nodeEnv>) {
 export const env = createEnv({
   server: {
     DATABASE_URL: z.string().min(1).url(),
-    NEXTAUTH_URL: z.string().optional().refine(requiredOnEnv('production')),
-    NEXTAUTH_SECRET: z.string().optional().refine(requiredOnEnv('production')),
   },
   client: {
     NEXT_PUBLIC_VERCEL_URL: z.string().min(1).url(),
