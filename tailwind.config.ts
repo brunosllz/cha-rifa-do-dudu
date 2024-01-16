@@ -1,20 +1,104 @@
-import type { Config } from 'tailwindcss'
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ['class'],
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
   ],
+  prefix: '',
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
+    },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        pancho: {
+          50: '#fdf7ef',
+          100: '#faecda',
+          200: '#f2d0a9',
+          300: '#ecba85',
+          400: '#e49453',
+          500: '#dd7832',
+          600: '#cf6127',
+          700: '#ac4a22',
+          800: '#893c23',
+          900: '#6f331f',
+          950: '#3c180e',
+        },
+        'lavender-purple': {
+          50: '#f7f7fb',
+          100: '#f0eff8',
+          200: '#e3e2f2',
+          300: '#cecbe7',
+          400: '#b2acd9',
+          500: '#968ac8',
+          600: '#8e7dbe',
+          700: '#715da4',
+          800: '#5f4e89',
+          900: '#4f4171',
+          950: '#31294c',
+        },
+        'peral-bush': {
+          50: '#fbf7f1',
+          100: '#f1e3d3',
+          200: '#ead4be',
+          300: '#dcb695',
+          400: '#cd936a',
+          500: '#c2794d',
+          600: '#b46542',
+          700: '#964f38',
+          800: '#794133',
+          900: '#62382c',
+          950: '#351b15',
+        },
+        'shadow-green': {
+          50: '#f4f9f8',
+          100: '#dcebe7',
+          200: '#b9d6d0',
+          300: '#99c1b9',
+          400: '#669b92',
+          500: '#4c8078',
+          600: '#3b6660',
+          700: '#32534f',
+          800: '#2b4441',
+          900: '#273a38',
+          950: '#13201f',
+        },
+        puce: {
+          50: '#fcf4f5',
+          100: '#f9eaec',
+          200: '#f2d9dd',
+          300: '#e8b9c1',
+          400: '#d88c9a',
+          500: '#c96a7e',
+          600: '#b24c66',
+          700: '#953b55',
+          800: '#7d344b',
+          900: '#6c2f44',
+          950: '#3b1621',
+        },
+      },
+      keyframes: {
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animate')],
 }
-export default config

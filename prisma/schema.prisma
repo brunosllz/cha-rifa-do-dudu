@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model buyer {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  createdAt DateTime @default(now())
+
+  selectedNumbers selectedNumber[]
+}
+
+model selectedNumber {
+  id          String    @id @default(cuid())
+  number      Int       @unique
+  diaperSize  String
+  buyerId     String
+  isDelivered DateTime?
+
+  Buyer buyer @relation(fields: [buyerId], references: [id], onDelete: Cascade)
+}
