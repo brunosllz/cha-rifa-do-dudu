@@ -3,6 +3,8 @@ import dayjs from 'dayjs'
 
 import { prisma } from '@/libs/prisma'
 
+export const revalidate = 0
+
 export default async function ManageDeliveredDiapers() {
   const query = await prisma.buyer.findMany({
     select: {
@@ -18,7 +20,7 @@ export default async function ManageDeliveredDiapers() {
       },
     },
     orderBy: {
-      createdAt: 'asc',
+      createdAt: 'desc',
     },
   })
 
