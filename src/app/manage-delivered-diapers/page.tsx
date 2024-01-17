@@ -17,6 +17,9 @@ export default async function ManageDeliveredDiapers() {
         },
       },
     },
+    orderBy: {
+      createdAt: 'asc',
+    },
   })
 
   const buyers = query.map((buyer) => ({
