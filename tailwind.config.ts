@@ -44,7 +44,7 @@ module.exports = {
           900: '#4f4171',
           950: '#31294c',
         },
-        'peral-bush': {
+        'pearl-bush': {
           50: '#fbf7f1',
           100: '#f1e3d3',
           200: '#ead4be',

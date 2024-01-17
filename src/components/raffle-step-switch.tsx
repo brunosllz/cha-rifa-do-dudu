@@ -11,7 +11,7 @@ function RaffleStepWrapper(props: MotionProps & { children: React.ReactNode }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.98 }}
       transition={{ duration: 0.1 }}
-      className="bg-[#F1E3D3] w-full max-w-[686.38px] mx-auto p-8 space-y-6 rounded-lg overflow-hidden overflow-y-auto shadow-lg"
+      className="bg-pearl-bush-100 w-full max-w-[686.38px] mx-auto p-8 space-y-6 rounded-lg overflow-hidden overflow-y-auto shadow-lg"
       {...props}
     />
   )
